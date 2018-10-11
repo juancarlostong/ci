@@ -71,5 +71,7 @@ output=$(curl -s -X POST \
 
 if [[ "$output" == *"error"* ]]; then
   echo "ERROR: curl did not succeed"
+  echo "the body was:"
+  echo "$body"
   exit 1
 fi
