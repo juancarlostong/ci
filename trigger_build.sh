@@ -19,6 +19,16 @@ else
   exit 2
 fi
 
+if [[ "$SDK" == "android" ]] || [[ "$SDK" == "objective-c" ]]; then 
+  extra_vars=$(cat <<EEV
+          "API_CALL_TIMEOUT": 3000,
+          "PERF": false,
+EEV
+)
+else
+  extra_vars=""
+fi
+
 body=$(cat <<EOF
 {
   "request": {
@@ -31,6 +41,7 @@ body=$(cat <<EOF
         "global": {
           "UPSTREAM_SHA": "${TRAVIS_PULL_REQUEST_SHA}",
           "UPSTREAM_REPO": "${TRAVIS_PULL_REQUEST_SLUG}",
+          ${extra_vars}
           "DEFAULT_RUN_ALL": false
         },
         "matrix": {
