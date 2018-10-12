@@ -41,7 +41,7 @@ body=$(cat <<EOF
         "global": {
           "UPSTREAM_SHA": "${TRAVIS_PULL_REQUEST_SHA}",
           "UPSTREAM_REPO": "${TRAVIS_PULL_REQUEST_SLUG}",
-          ${extra_vars}
+${extra_vars}
           "DEFAULT_RUN_ALL": false
         },
         "matrix": {
@@ -70,7 +70,7 @@ output=$(curl -s -X POST \
 )
 
 if [[ "$output" == *"error"* ]]; then
-  echo "ERROR: curl did not succeed"
+  echo "ERROR: curl did not succeed: $output"
   echo "the body was:"
   echo "$body"
   exit 1
