@@ -71,7 +71,9 @@ output=$(curl -s -X POST \
 
 if [[ "$output" == *"error"* ]]; then
   echo "ERROR: curl did not succeed: $output"
-  echo "the body was:"
+  echo "Things to check:"
+  echo "is TRAVIS_COM_TOKEN defined?"
+  echo "is this valid json?"
   echo "$body"
   exit 1
 fi
