@@ -42,7 +42,7 @@ body=$(cat <<EOF
           "UPSTREAM_SHA": "${TRAVIS_PULL_REQUEST_SHA}",
           "UPSTREAM_REPO": "${TRAVIS_PULL_REQUEST_SLUG}",
 ${extra_vars}
-          "SDK_BRANCH": "${TRAVIS_PULL_REQUEST_SLUG}"
+          "SDK_BRANCH": "${TRAVIS_PULL_REQUEST_BRANCH}"
         },
         "matrix": {
           "SDK": "${SDK}"
