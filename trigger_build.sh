@@ -19,21 +19,11 @@ else
   exit 2
 fi
 
-if [[ "$SDK" == "android" ]] || [[ "$SDK" == "objective-c" ]]; then 
-  extra_vars=$(cat <<EEV
-          "API_CALL_TIMEOUT": 3000,
-          "PERF": false,
-EEV
-)
-else
-  extra_vars=""
-fi
-
 body=$(cat <<EOF
 {
   "request": {
     "message": "Override the commit message: this is an api request",
-    "branch": "jtong/travisci",
+    "branch": "jtong/travis_stages",
     "config": {
       "sudo": "required",
       "merge_mode": "deep_merge",
@@ -41,15 +31,13 @@ body=$(cat <<EOF
         "global": {
           "UPSTREAM_SHA": "${TRAVIS_PULL_REQUEST_SHA}",
           "UPSTREAM_REPO": "${TRAVIS_PULL_REQUEST_SLUG}",
-${extra_vars}
+          "RUN_ALL": false,
+          "SDK": "${SDK}",
           "SDK_BRANCH": "${TRAVIS_PULL_REQUEST_BRANCH}"
-        },
-        "matrix": {
-          "SDK": "${SDK}"
         }
       },
       "install": ["ci/install.sh"],
-      "script": ["COMPOSE_PROJECT_NAME=fullstack-compat-${TRAVIS_BRANCH}-${TRAVIS_BUILD_NUMBER}-${SDK} ./ci.sh"],
+      "script": ["./ci.sh"],
       "after_success": "STATE=success ci/update_build_status.sh",
       "after_failure": "STATE=failure ci/update_build_status.sh"
     }
