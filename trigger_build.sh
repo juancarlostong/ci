@@ -32,7 +32,7 @@ body=$(cat <<EOF
           "UPSTREAM_SHA": "${TRAVIS_PULL_REQUEST_SHA}",
           "UPSTREAM_REPO": "${TRAVIS_PULL_REQUEST_SLUG}",
           "RUN_ALL": false,
-          "SDK": "${SDK}",
+          "run_SDK": "${SDK}",
           "SDK_BRANCH": "${TRAVIS_PULL_REQUEST_BRANCH}"
         }
       },
