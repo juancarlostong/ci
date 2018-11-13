@@ -47,7 +47,7 @@ EOF
 )
 
 REPO="https://api.travis-ci.com/repo/$repo_slug/requests"
-
+echo $body
 output=$(curl -s -X POST \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
