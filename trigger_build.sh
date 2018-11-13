@@ -27,7 +27,7 @@ body=$(cat <<EOF
     "config": {
       "sudo": "required",
       "language": "generic",
-      "merge_mode": "replace",
+      "merge_mode": "deep_merge",
       "env": {
         "global": {
           "UPSTREAM_SHA": "${TRAVIS_PULL_REQUEST_SHA}",
