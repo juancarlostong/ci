@@ -26,6 +26,7 @@ body=$(cat <<EOF
     "branch": "jtong/travis_stages",
     "config": {
       "sudo": "required",
+      "language": "generic",
       "merge_mode": "replace",
       "env": {
         "global": {
