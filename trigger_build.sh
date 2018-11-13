@@ -37,7 +37,7 @@ body=$(cat <<EOF
           "SDK_BRANCH": "${TRAVIS_PULL_REQUEST_BRANCH}"
         }
       },
-      "install": ["ci/install.sh"],
+      "install": ["ci/install.sh", "aws s3 --region us-east-1 --recursive cp s3://build-data-logs/pipeline-test-bdd/LATEST/test_artifacts/ features/support/datafiles/"],
       "script": ["./ci.sh"],
       "after_success": "STATE=success ci/update_build_status.sh",
       "after_failure": "STATE=failure ci/update_build_status.sh"
