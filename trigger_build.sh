@@ -23,7 +23,7 @@ body=$(cat <<EOF
 {
   "request": {
     "message": "Override the commit message: this is an api request",
-    "branch": "jtong/travis_stages",
+    "branch": "jtong/travis_clean",
     "config": {
       "sudo": "required",
       "language": "generic",
