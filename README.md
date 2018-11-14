@@ -5,3 +5,5 @@ checklist for adding downstream job trigger
 3. change .travis.yml to include this in script section: (replace SDK=android with appropriate value)
   - git clone https://github.com/juancarlostong/ci.git
   - "SDK=android ci/trigger_build.sh optimizely%2Ffullstack-sdk-compatibility-suite"
+
+The %2F in the request URL is required so that the owner and repository name in the repository slug are interpreted as a single URL segment.

@@ -2,7 +2,13 @@
 
 set -e
 
+# this script expects 3 inputs:
+# 1. SDK environment variable should be set
+# 2. first argument: repo_slug (repository to trigger a travis build on)
+# 3. second argument: branch (branch of the above repo)
+
 repo_slug=$1
+branch="${2:-master}"
 
 # why travis creates two builds for every commit push:
 # https://stackoverflow.com/questions/34974925/travis-ci-creates-two-builds-for-each-github-commit-push
@@ -23,7 +29,7 @@ body=$(cat <<EOF
 {
   "request": {
     "message": "Override the commit message: this is an api request",
-    "branch": "jtong/travis_clean",
+    "branch": "${branch}",
     "config": {
       "sudo": "required",
       "language": "generic",
