@@ -8,7 +8,8 @@ set -e
 # 3. second argument: branch (branch of the above repo)
 
 repo_slug=$1
-branch="${2:-master}"
+#branch="${2:-master}"
+branch="${2:-jtong/travisci}"
 
 # why travis creates two builds for every commit push:
 # https://stackoverflow.com/questions/34974925/travis-ci-creates-two-builds-for-each-github-commit-push
