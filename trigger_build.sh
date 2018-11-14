@@ -44,8 +44,8 @@ body=$(cat <<EOF
           "SDK_BRANCH": "${TRAVIS_PULL_REQUEST_BRANCH}"
         }
       },
-      "after_success": "STATE=success ci/update_build_status.sh",
-      "after_failure": "STATE=failure ci/update_build_status.sh"
+      "after_success": "STATE=success scripts/update_build_status.sh",
+      "after_failure": "STATE=failure scripts/update_build_status.sh"
     }
   }
 }
